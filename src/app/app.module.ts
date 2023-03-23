@@ -7,7 +7,6 @@ import { UserComponent } from './users/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDetaileGuard } from './user-deatiles/user-detaile.guard';
 import { UserDetileComponent } from './user-deatiles/user-deatiles.component';
-
 import { AuthentcationGuard } from './user-login/auth.guard';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { NgxPaginationModule } from 'ngx-pagination';
@@ -16,9 +15,14 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrowserModule,
     HttpClientModule,
     NgxPaginationModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: 'login', component: UserLoginComponent },
+      {
+        path: 'login',
+        component: UserLoginComponent,
+     
+      },
       {
         path: 'users',
         component: UserComponent,
@@ -29,11 +33,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
         component: UserDetileComponent,
         canActivate: [UserDetaileGuard],
       },
-      { path: '', redirectTo: 'users', pathMatch: 'full' },
-      { path: '**', redirectTo: 'users', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
+      { path: '**', redirectTo: 'login', pathMatch: 'full' },
     ]),
   ],
-  declarations: [AppComponent, UserComponent, UserDetileComponent],
+  declarations: [
+    AppComponent,
+    UserLoginComponent,
+    UserComponent,
+    UserDetileComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

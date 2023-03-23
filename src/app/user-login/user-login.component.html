@@ -1,5 +1,6 @@
-<!-- <div class="p-3 m-3">
-    <form class="p-4 m-4"  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="p-3 m-3">
+    <form class="p-4 m-4"  
+    (ngSubmit)="onSubmit()" [formGroup]="loginForm">
         <div class="form-group my-4">
             <input type="email" id="email" placeholder="Email" class="form-control" formControlName="email" />
             <span *ngIf="loginForm.get('email')?.errors?.['error try agian']
@@ -16,4 +17,4 @@
     
         <input [disabled]="this.loginForm.invalid" type="submit" class="btn btn-primary w-100 " value="Login">
     </form>
-</div> -->
+</div>

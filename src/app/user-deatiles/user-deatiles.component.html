@@ -1,9 +1,19 @@
-<div class="card">
-    <div class="card-header">
-        {{title +" "+user.first_name}}
-    </div>
-    <div class="card-footer">
-        <button class="btn btn-primary btn-sm"
-        (click)="onBack()">Back</button>
-    </div>
+<div class="container">
+    <section class="mx-auto my-5" style="max-width: 23rem;">
+
+        <div class="card testimonial-card mt-2 mb-3">
+            <div class="card-up aqua-gradient"></div>
+            <div class="avatar mx-auto white">
+                <img src={{user.avatar}} class="rounded-circle img-fluid" alt="User avatar">
+            </div>
+            <div class="card-body text-center">
+                <h4 class="card-title font-weight-bold">{{user.first_name}}{{user.last_name}}</h4>
+                <hr>
+                <p title="email Address">{{user.email}}</p>
+            </div>
+            <button class="btn btn-primary btn-sm" (click)="onBack()">Back</button>
+
+        </div>
+
+    </section>
 </div>

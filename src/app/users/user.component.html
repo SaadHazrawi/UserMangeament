@@ -1,8 +1,4 @@
-<!-- <li *ngFor="let user of userInfo.data">
-  <span>{{ user.first_name }} {{ user.last_name }}</span>
-  <img [src]="user.avatar" alt="" />
-</li> -->
-<!-- *ngIf="displayImage" -->
+ 
 <table class="table container text-center">
   <thead>
     <tr>
@@ -10,8 +6,7 @@
         <button class="btn btn-primary" (click)="toggleImage()">
           {{ displayImage ? "Hide" : "Show" }} Image
         </button>
-        <button #firstpage (click)="callfirstpage(1)" class="btn btn-success mx-1" >1</button>
-        <button #secoundpage (click)="callsecoundpage(2)" class="btn btn-success"  >2</button>
+
       </th>
     </tr>
     <tr>
@@ -22,18 +17,13 @@
     </tr>
   </thead>
   <tbody>
-     
+
     <tr *ngFor="let user of users| paginate: { itemsPerPage: 6, currentPage: p, totalItems: total }">
       <td>
-        <img
-          class="border border-danger rounded-circle"
-          *ngIf="displayImage"
-          [src]="user.avatar"
-          alt=""
-        />
+        <img class="border border-danger rounded-circle" *ngIf="displayImage" [src]="user.avatar" alt="" />
       </td>
 
-      <td><a   [routerLink]="['/users',user.id]">{{ user.first_name }}</a></td>
+      <td><a [routerLink]="['/users',user.id]">{{ user.first_name }}</a></td>
       <td>{{ user.last_name }}</td>
       <td>
         {{ user.email }}

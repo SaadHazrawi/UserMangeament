@@ -21,10 +21,11 @@ import { UserService } from '../Services/user.service';
 })
 export class UserComponent implements OnInit, OnChanges {
   userInfo: UserInformation;
-  users:any ;
+  users: any;
+  total: number = 0;
   displayImage: boolean = true;
   p: number = 1;
-  total: number = 0;
+  
   constructor(private userService: UserService) {
     this.userInfo = {} as UserInformation;
   }
@@ -34,20 +35,19 @@ export class UserComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {}
-//  ngOnInit():void {
-//       this.getUsers();
-//     }
-getUsers(){
-  this.userService.getUsers(this.p)
-    .subscribe((response: any) => {
+  //  ngOnInit():void {
+  //       this.getUsers();
+  //     }
+  getUsers() {
+    this.userService.getUsers(this.p).subscribe((response: any) => {
       this.users = response.data;
       this.total = response.total;
     });
-} 
-pageChangeEvent(event: number){
-this.p = event;
-this.getUsers( );
-}
+  }
+  pageChangeEvent(event: number) {
+    this.p = event;
+    this.getUsers();
+  }
   ngOnInit(): void {
     this.getUsers();
     //  this.userService
@@ -69,22 +69,4 @@ this.getUsers( );
     //     });
     //   });
   }
-
- callfirstpage(first: number): void {
-  //   this.p = first;
-  //   this.userService
-  //     .getUsers(this.p)
-  //     .subscribe((response: UserInformation) => {
-  //       console.log(response);
-  //     });
-  }
-  callsecoundpage(secound: number): void {
-  //   this.p = secound;
-  //   this.userService
-  //     .getUsers(this.p)
-  //     .subscribe((response: UserInformation) => {
-  //       console.log(response);
-  //     });
-  }
-
 }
